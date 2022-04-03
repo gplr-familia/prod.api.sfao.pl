@@ -1,0 +1,79 @@
+services:
+  # Measurment Filters
+  measurement.order_filter:
+    parent: 'api_platform.doctrine.orm.order_filter'
+    arguments: [ { id: ~, type: ~, value: ~, created: ~, updated: ~ } ]
+    tags: [ 'api_platform.filter' ]
+  measurement.search_filter:
+    parent: 'api_platform.doctrine.orm.search_filter'
+    arguments: [ { type: 'exact', user: 'exact' } ]
+    tags: [ 'api_platform.filter' ]
+  measurement.date_filter:
+    parent: 'api_platform.doctrine.orm.date_filter'
+    arguments: [ { created: ~ } ]
+    tags: [ 'api_platform.filter' ]
+  measurement.user_in_group_filter:
+    parent: 'api_platform.doctrine.orm.nested_filter'
+    tags: [ 'api_platform.filter' ]
+  # Measurement Types filters
+  #    measurement_type.search_filter:
+  #        parent: 'api_platform.doctrine.orm.search_filter'
+  #        arguments: [ { type: 'exact' } ]
+  #        tags: [ 'api_platform.filter' ]
+  # Recommendation filters
+  recommendation.order_filter:
+    parent: 'api_platform.doctrine.orm.order_filter'
+    arguments: [ { id: ~, type: ~, value: ~, created: ~, updated: ~ } ]
+    tags: [ 'api_platform.filter' ]
+  recommendation.search_filter:
+    parent: 'api_platform.doctrine.orm.search_filter'
+    arguments: [ { type: 'exact', user: 'exact', status: 'exact', at: 'partial' } ]
+    tags: [ 'api_platform.filter' ]
+  recommendation.date_filter:
+    parent: 'api_platform.doctrine.orm.date_filter'
+    arguments: [ { created: ~, updated: ~, at: ~, ends: ~ } ]
+    tags: [ 'api_platform.filter' ]
+  recommendation.user_in_group_filter:
+    parent: 'api_platform.doctrine.orm.nested_filter'
+    tags: [ 'api_platform.filter' ]
+  # User filters
+  user.order_filter:
+    parent: 'api_platform.doctrine.orm.order_filter'
+    arguments: [ { id: ~, email: ~, fullname: ~, username: ~ } ]
+    tags: [ 'api_platform.filter' ]
+  # Notification filters
+  notification.date_filter:
+    parent: 'api_platform.doctrine.orm.date_filter'
+    arguments: [ { at: ~ } ]
+    tags: [ 'api_platform.filter' ]
+  notification.created_for_filter:
+    parent: 'api_platform.doctrine.orm.search_filter'
+    arguments: [ { createdFor: 'exact' } ]
+    tags: [ 'api_platform.filter' ]
+  notification.status_filter:
+    parent: 'api_platform.doctrine.orm.search_filter'
+    arguments: [ { status: 'exact' } ]
+    tags: [ 'api_platform.filter' ]
+  notification.order_filter:
+    parent: 'api_platform.doctrine.orm.order_filter'
+    arguments: [ { at: ~ } ]
+    tags: [ 'api_platform.filter' ]
+  # Summary filters
+  summary.date_filter:
+    parent: 'api_platform.doctrine.orm.search_filter'
+    arguments: [ { starts: 'exact', ends: 'exact' } ]
+    tags: [ 'api_platform.filter' ]
+  # Appointment filter
+  appointment.search_filter:
+    parent: 'api_platform.doctrine.orm.search_filter'
+    arguments: [ { patient: 'exact' } ]
+    tags: [ 'api_platform.filter' ]
+  # Global filters
+  global.id_filter:
+    parent: 'api_platform.doctrine.orm.search_filter'
+    arguments: [ { id: 'exact' } ]
+    tags: [ 'api_platform.filter' ]
+  global.user_filter:
+    parent: 'api_platform.doctrine.orm.search_filter'
+    arguments: [ { user: 'exact' } ]
+    tags: [ 'api_platform.filter' ]
